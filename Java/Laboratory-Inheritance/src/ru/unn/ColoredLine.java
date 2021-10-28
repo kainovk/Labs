@@ -9,6 +9,11 @@ public class ColoredLine extends Line {
         this.color = color;
     }
 
+    public ColoredLine(Point p1, Point p2, String color) {
+        super(p1, p2);
+        this.color = color;
+    }
+
     public String getColor() {
         return color;
     }

@@ -2,33 +2,28 @@ package ru.unn;
 
 public class PolyLine extends Line {
 
-    private double x3, y3;
+    private final Line[] lines;
 
-    public PolyLine(double x1, double y1, double x2, double y2, double x3, double y3) {
-        super(x1, y1, x2, y2);
-        this.x3 = x3;
-        this.y3 = y3;
+    public PolyLine(Line[] lines) {
+        super(lines[0]);
+        this.lines = new Line[lines.length - 1];
+        System.arraycopy(lines, 1, this.lines, 0, lines.length - 1);
     }
 
-    public double getX3() {
-        return x3;
-    }
-
-    public double getY3() {
-        return y3;
-    }
-
-    public void setX3(double x3) {
-        this.x3 = x3;
-    }
-
-    public void setY3(double y3) {
-        this.y3 = y3;
+    public Line getLineAt(int index) {
+        if (index >= lines.length) {
+            return null;
+        }
+        return lines[index];
     }
 
     @Override
     public void display() {
-        System.out.printf("Polyline: (%.1f; %.1f), (%.1f; %.1f), (%.1f; %.1f)\n",
-                getX(), getY(), getX2(), getY2(), x3, y3);
+        System.out.printf("Polyline: %d lines:\n(%.1f; %.1f), (%.1f; %.1f)\n",
+                lines.length + 1, getX(), getY(), getX2(), getY2());
+        for (Line line : lines) {
+            System.out.printf("(%.1f; %.1f), (%.1f; %.1f)\n",
+                    line.getX(), line.getY(), line.getX2(), line.getY2());
+        }
     }
 }
