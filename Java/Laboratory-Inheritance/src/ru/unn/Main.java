@@ -8,11 +8,12 @@ public class Main {
 
         // Point polymorphism
         Point point = new Point(6, 4.1);
+        Point coloredPoint = new ColoredPoint(8, 1, "YELLOW");
         Point line = new Line(11, 21, 33, 445.754);
         Point coloredLine = new ColoredLine(1, 2, 5, 6.4214, "WHITE");
 
         // display()
-        List<Point> myObjects = Arrays.asList(point, line, coloredLine);
+        List<Point> myObjects = Arrays.asList(point, coloredPoint, line, coloredLine);
         for (Point obj : myObjects) {
             obj.display();
         }

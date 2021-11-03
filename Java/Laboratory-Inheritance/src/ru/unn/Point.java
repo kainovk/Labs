@@ -10,8 +10,8 @@ public class Point {
     }
 
     public Point(Point point) {
-        this.x = point.getX();
-        this.y = point.getY();
+        this.x = point.x;
+        this.y = point.y;
     }
 
     public double getX() {
