@@ -47,6 +47,7 @@ public class MyList<T> {
     }
 
     public boolean insert(int index, T data) {
+        
         if(index == 0) {
             pushFront(data);
             return true;
