@@ -4,10 +4,15 @@ public class Main {
 
     public static void main(String[] args) {
 
+        System.out.println("MyList<Integer>");
+
         MyList<Integer> list = new MyList<>();
 
         list.pushFront(3);
         list.pushFront(2);
+        if(!list.insert(-1, 45)) {
+            System.out.println("Неверный индекс");
+        }
         list.pushFront(1);
         list.display();
 
@@ -29,6 +34,10 @@ public class Main {
         list.delete(4);
         list.delete(1);
         list.display();
+
+        //
+        System.out.println("\n\n");
+        System.out.println("MyList<String>");
 
         MyList<String> strList = new MyList<>();
 
@@ -55,6 +64,5 @@ public class Main {
         strList.delete("4");
         strList.delete("1");
         strList.display();
-
     }
 }

@@ -2,9 +2,9 @@ package com.company;
 
 public class MyList<T> {
 
-    Node head;
+    private Node head;
 
-    class Node<T> {
+    private class Node<T> {
 
         T data;
         Node next;
@@ -46,6 +46,31 @@ public class MyList<T> {
         node.prev = tail;
     }
 
+    public boolean insert(int index, T data) {
+        if(index == 0) {
+            pushFront(data);
+            return true;
+        }
+
+        Node node = new Node(data);
+        Node tail = head;
+
+        int i;
+        for (i = 0; tail.next != null && i < index; tail = tail.next, i++) {
+        }
+
+        if (i == index) {
+            tail.prev.next = node;
+            node.prev = tail.prev;
+            node.next = tail;
+            tail.prev = node;
+
+            return true;
+        }
+
+        return false;
+    }
+
     public boolean delete(T data) {
 
         if (head == null) {
@@ -53,8 +78,8 @@ public class MyList<T> {
         }
 
         // first
-        if(head.data == data){
-            if(head.next == null){
+        if (head.data == data) {
+            if (head.next == null) {
                 head = null;
                 return true;
             }
@@ -77,8 +102,8 @@ public class MyList<T> {
         }
 
         // last
-        if(node != head){
-            if(node.data == data){
+        if (node != head) {
+            if (node.data == data) {
                 node.prev.next = null;
                 return true;
             }
@@ -89,12 +114,12 @@ public class MyList<T> {
 
     public void display() {
 
-        if(head == null){
+        if (head == null) {
             System.out.println("EMPTY!");
         }
 
         Node node = head;
-        while (node != null){
+        while (node != null) {
             System.out.print(node.data);
             System.out.print(" ");
             node = node.next;
